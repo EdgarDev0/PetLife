@@ -73,16 +73,62 @@
     
 }
 
-/* Responsividade da Home */
-@media (max-width: 1079px) {
+/*Clinica*/
 
-    .container-limiter {
-        justify-content: center;
-    }
+.lista-servicos li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+.lista-servicos li::before {
+    content: "\2705";
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.clinica-section .container-limiter {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.clinica-section img {
+    order: 2;
+    width: 500px;
+}
+
+.clinica-section .content-text {
+    order: 1;
+    gap: clamp(10px, 2vw, 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #333;
+    width: 500px;
+    max-width: 100%;
+}
+
+@media (max-width: 1079px) {
 
     .botoes {
         justify-content: center;
     }
+
+    .clinica-section .container-limiter {
+        flex-direction: column;
+    }
+
+    .clinica-section img {
+        order: 1;
+    }
+
+    .clinica-section .content-text {
+        order: 2;
+    }
+
 }
 
 @media (max-width: 500px) {
