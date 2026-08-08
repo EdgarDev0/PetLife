@@ -1,0 +1,64 @@
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: var(--max-width-container);
+    min-height: calc(100vh - 70px);
+    margin: 0 auto;
+    padding: 0 20px;
+
+    flex-wrap: wrap;
+
+}
+.banner-principal img{
+    order: 1;
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+}
+.texto-principal {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(10px, 2vw, 20px);
+    margin: 20px 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #333;
+    max-width: 500px;
+}
+.texto-principal h2 {
+    font-size: clamp(1.8rem, 4vw, 2rem);
+    font-weight: 700;
+}
+.botoes {
+    display: flex;
+    gap: 12px;
+    
+}
+
+/* Responsividade da Home */
+@media (max-width: 1079px) {
+
+    main {
+        justify-content: center;
+    }
+
+    .texto-principal {
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .botoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .botoes a {
+        text-align: center;
+    }
+}
