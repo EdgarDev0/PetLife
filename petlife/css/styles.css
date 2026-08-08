@@ -5,6 +5,7 @@
   --margin-text: 2rem; /** margem a ser aplicada em elementos de texto */
   --max-width-container: 1200px; /** largura máxima dos contêineres de conteúdo */
   --primary-color-hover: #ff4128; /** cor de elementos primários ao passar o mouse por cima */
+  --border-radius: 8px; /** cantos arredondados **/
 }
 
 * {
@@ -32,7 +33,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 50px;
+    padding: 15px clamp(20px, 4vw, 50px);
+    gap: clamp(10px, 2vw, 30px);
 
     background-color: var(--primary-color);
 }
@@ -57,16 +59,19 @@ main {
     justify-content: space-between;
     align-items: center;
 
-    max-width: 1200px;
+    max-width: var(--max-width-container);
     min-height: calc(100vh - 70px);
     margin: 0 auto;
     padding: 0 20px;
+
+    flex-wrap: wrap;
 
 }
 
 main img{
     order: 1;
     width: 500px;
+    max-width: 100%;
     height: auto;
 }
 
@@ -75,31 +80,31 @@ main img{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
     margin: 20px 20px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     color: #333;
+    max-width: 500px;
 }
 
 .texto-principal h2 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 4vw, 2rem);
     font-weight: 700;
 }
 
 .botoes {
     display: flex;
     gap: 12px;
-    white-space: nowrap;
     
 }
 
 .botoes a{
-    border-radius: 8px;
+    white-space: nowrap;
+    border-radius: var(--border-radius);
     display: inline-block;
-    padding: 10px 20px;
+    padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 20px);
     text-decoration: none;
-
     transition: all 0.3s;
 }
 
@@ -122,23 +127,11 @@ main img{
     background-color: #fff;
 }
 
-@media (max-width: 700px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    main {
-        flex-direction: column;
-    }
+/* Tablets e telas menores */
+@media (max-width: 1079px) {
 
-    main img {
-        width: 100%;
-        height: auto;
-    }
-
-    .botoes {
-        flex-direction: column;
+    .texto-principal {
+        align-items: center;
     }
 
     .nav-links {
@@ -146,5 +139,41 @@ main img{
         justify-content: center;
         line-height: 50px;
         gap: 20px;
+    }
+    
+    main {
+       
+        justify-content: center;
+    }
+
+    .botoes {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/*Smartphones*/
+@media (max-width: 500px) {
+
+    .botoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .botoes a {
+        text-align: center;
     }
 }
