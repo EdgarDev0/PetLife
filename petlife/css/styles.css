@@ -33,10 +33,21 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px clamp(20px, 4vw, 50px);
+    padding: 15px clamp(26px, 4vw, 50px);
     gap: clamp(10px, 2vw, 30px);
 
     background-color: var(--primary-color);
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -56,7 +67,7 @@ header {
     white-space: nowrap;
 }
 
-.nav-links a:hover:not(.imagem-marca) {
+.nav-links a:hover {
     text-decoration: underline;
     text-underline-offset: 6px;
 }
@@ -94,22 +105,39 @@ header {
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        line-height: 50px;
-        gap: 20px;
-    }
-}
-
-@media (max-width: 800px) {
-
-    .nav-links {
-        gap: 15px;
     }
 }
 
 @media (max-width: 700px) {
 
     header {
-        flex-direction: column;
-        align-items: flex-start;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+    }
+
+    #menu-toggle:checked ~ .navbar {
+        display: block;
+}
+
+    .nav-links {
+        
+        justify-content: flex-start;
+        padding-bottom: 15px;
+        margin-left: 25px;
+          
     }
 }

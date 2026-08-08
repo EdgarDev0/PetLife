@@ -1,7 +1,29 @@
-main {
+.hero-section {
+    min-height: calc(100vh - 70px);
+
+    background-size: 200% 200%;
+
+    background-image: 
+        linear-gradient(
+            to bottom,
+            #fcfcfc00,
+            #fcfcfc55,
+            #fcfcfcaa,
+            #fcfcfcff
+        ),
+        radial-gradient(
+            circle at 10%,
+            #ff725e,
+            transparent
+        );
+    animation: 4s linear infinite alternate hero-gradient;
+}
+
+.container-limiter {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    column-gap: clamp(1rem, 3vw, 2rem);
 
     max-width: var(--max-width-container);
     min-height: calc(100vh - 70px);
@@ -9,45 +31,57 @@ main {
     padding: 0 20px;
 
     flex-wrap: wrap;
-
 }
+
+.banner-principal {
+    flex: 1 1 500px;
+    display: flex;
+    justify-content: center;
+}
+
 .banner-principal img{
     order: 1;
-    width: 500px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 500px;
     height: auto;
 }
+
 .texto-principal {
     order: 2;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: clamp(10px, 2vw, 20px);
-    margin: 20px 20px;
+    margin: -60px auto 0;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     color: #333;
-    max-width: 500px;
+    width: 500px;
+    max-width: 100%;
 }
+
 .texto-principal h2 {
+    margin-top: 0;
     font-size: clamp(1.8rem, 4vw, 2rem);
     font-weight: 700;
 }
+
 .botoes {
     display: flex;
-    gap: 12px;
+    gap: clamp(8px, 1.5vw, 12px);
+    width: 100%;
     
 }
 
 /* Responsividade da Home */
 @media (max-width: 1079px) {
 
-    main {
+    .container-limiter {
         justify-content: center;
     }
 
-    .texto-principal {
-        align-items: center;
+    .botoes {
+        justify-content: center;
     }
 }
 
@@ -60,5 +94,27 @@ main {
 
     .botoes a {
         text-align: center;
+    }
+}
+
+@keyframes hero-gradient {
+    0% {
+        background-position: 0% 25%;
+    }
+
+    25% {
+        background-position: 50% 50%;
+    }
+
+    50% {
+        background-position: 100% 75%;
+    }
+
+    75% {
+        background-position: 50% 50%;
+    }
+
+    100% {
+        background-position: 0% 25%;
     }
 }
